@@ -1,5 +1,6 @@
 import tornado.ioloop
 import tornado.web
+import json
 
 import api
 import os
@@ -35,7 +36,7 @@ class DialogueChanged(BaseHandler):
 
 class DataHandler(BaseHandler):
     def post(self):
-        self.write("Jopa")
+        self.write(json.dumps(us.getData()))
     def get(self):
         self.write("Jopa")
 
