@@ -2,6 +2,8 @@ import tornado.ioloop
 import tornado.web
 
 import api
+import os
+os.chdor("Server")
 
 
 us = api.User("XoMute")
