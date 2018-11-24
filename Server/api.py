@@ -31,6 +31,7 @@ class User:
             with open("./sessions/"+uname,"w") as o:
                 o.write(session.save())
     def dialogue_changed(self, user): 
+        print(user)
         dataloaded = False
         self.chatter = user
         if user not in self.data.keys():
