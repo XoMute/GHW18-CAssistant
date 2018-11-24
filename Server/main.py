@@ -9,7 +9,7 @@ os.chdir("Server")
 port = os.getenv("PORT",8888)
 
 
-us = api.User("XoMute")
+us = api.User("MikeVernik")
 
 class BaseHandler(tornado.web.RequestHandler):
     def get(self, *args, **kwargs):
