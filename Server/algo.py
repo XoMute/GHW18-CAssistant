@@ -40,14 +40,24 @@ def nonNormalLexic(text):
     
 
 def without_me(text):
-    dic = []
+    dic = ["ать","ять","оть","еть", "уть", "у", "ю", "ем", "им", "ешь", "ишь","ал", "ял","ала", "яла", "ула", "ул","ели","ела", "ол", "ел"]
 
     return 0
 
 def direct_words(text):
-    dic = []
-    
-    return 0
+    dic = ["ать","ять","оть","еть", "уть", "ем", "им", "ешь", "ишь","ал", "ял","ала", "яла", "ула", "ул","ели","ела", "ол", "ел"]
+    direct_word_len = 0
+    full_len        = 0
+    for struct in text:
+        lst = struct['text'].split()
+        for word in lst:
+            for word_in_dict in dic:
+                if word.find(word_in_dict) > 0 or word[len(word) - 1] == "у" or word[len(word)-1] == "ю":
+                    direct_word_len += len(word)
+                full_len += len(word_len)
+        
+        
+    return (direct_word_len / full_len)*100.0
     
 def animals_words(text):
     counter = 0
@@ -78,3 +88,37 @@ def aproximation(string, word):
         if counter / float(len(word)) > 0.7:
             return 1
     return 0
+
+
+#
+#   Кнута-Морриса-Пратта
+#
+#
+
+
+def prefix(s):
+    v = [0]*len(s)
+    for i in xrange(1,len(s)):
+        k = v[i-1]
+        while (k > 0) and (s[k] != s[i]):
+            k = v[k-1]
+        if s[k] == s[i]:
+            k = k + 1
+        v[i] = k
+    return v
+
+def KnuthMorrisPratt(s,t):
+    index = -1
+    f = prefix(s)
+    k = 0
+    for i in xrange(len(t)):
+        while k > 0 and s[k] != t[i]:
+            k = f[k-1]
+        if s[k] == t[i]:
+            k = k + 1
+        if k == len(s):
+            index = i - len(s) + 1
+            break
+    return index
+
+
