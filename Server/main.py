@@ -1,13 +1,15 @@
 import tornado.ioloop
 import tornado.web
+import json
+import asyncio
 
 import api
 import os
 os.chdir("Server")
-port = os.getenv("PORT",1)
+port = os.getenv("PORT",8888)
 
 
-us = api.User("XoMute")
+us = api.User("MikeVernik")
 
 class BaseHandler(tornado.web.RequestHandler):
     def get(self, *args, **kwargs):
@@ -29,13 +31,14 @@ class DialogueChanged(BaseHandler):
     def get(self):
         self.write("Hello, world")
     def post(self):
-        #us.dialogue_changed(self.request.body.decode())
+
+        asyncio.ensure_future(us.dialogue_changed(self.request.body.decode()))
         print(self.request.body)
         self.write("You posted")
 
 class DataHandler(BaseHandler):
     def post(self):
-        self.write("Jopa")
+        self.write(json.dumps(us.getData()))
     def get(self):
         self.write("Jopa")
 
@@ -48,6 +51,7 @@ def make_app():
     ])
 
 if __name__ == "__main__":
+    print("1")
     app = make_app()
     app.listen(port)
     tornado.ioloop.IOLoop.current().start()
