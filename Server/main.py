@@ -30,9 +30,9 @@ class MainHandler(BaseHandler):
 class DialogueChanged(BaseHandler):
     def get(self):
         self.write("Hello, world")
-    async def post(self):
+    def post(self):
 
-        await us.dialogue_changed(self.request.body.decode())
+        asyncio.ensure_future(us.dialogue_changed(self.request.body.decode()))
         print(self.request.body)
         self.write("You posted")
 
