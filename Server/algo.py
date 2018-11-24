@@ -54,7 +54,7 @@ def direct_words(text):
             for word_in_dict in dic:
                 if word.find(word_in_dict) > 0 or word[len(word) - 1] == "у" or word[len(word)-1] == "ю":
                     direct_word_len += len(word)
-                full_len += len(word_len)
+                full_len += len(word)
         
         
     return (direct_word_len / full_len)*100.0
