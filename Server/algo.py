@@ -7,8 +7,8 @@ def me_in_text(text):
     for elem in text:
        # print(elem)
         words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
-        full_len += len(elem['text'])
-                          
+        full_len += len(elem['text'].split())
+                              
     return (words_len / full_len) * 100.0
             
 def questions(text):
@@ -19,7 +19,7 @@ def questions(text):
     full_len = 0                      
     for elem in text:
         q_len += int(elem['text'].count("?"))
-        full_len +=float(len(elem['text']))
+        full_len +=len(elem['text'].split())
         
     return (q_len / full_len) * 100.0
 
@@ -29,7 +29,7 @@ def smiles(text):
     full_len = 0
     for elem in text:
         emoji_len += int(emoji.emoji_count(elem['text']))
-        full_len  += float(len(elem['text']))
+        full_len  += float(len(elem['text'].split()))
         
     return (emoji_len / full_len) * 100.0
 
@@ -40,8 +40,8 @@ def nonNormalLexic(text):
     
 
 def without_me(text):
-    dic = ["ать","ять","оть","еть", "уть", "у", "ю", "ем", "им", "ешь", "ишь","ал", "ял","ала", "яла", "ула", "ул","ели","ела", "ол", "ел"]
-
+    dic = ["ты","я", "мне", "ишь","ал", "ял","ала", "яла", "ула", "ул","ели","ела", "ол", "ел"]
+    
     return 0
 
 def direct_words(text):
@@ -85,7 +85,7 @@ def aproximation(string, word):
         for i in range(len(word)):
             if (len(w) > i) and (word[i] == w[i]):
                 counter +=1
-        if counter / float(len(word)) > 0.7:
+        if counter / float(len(word)) > 0.75:
             return 1
     return 0
 
