@@ -9,7 +9,7 @@ def me_in_text(text):
         words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
         full_len += len(elem['text'].split())
                               
-    return (words_len / full_len) * 100.0
+    return (words_len / full_len) * 1000.0
             
 def questions(text):
     # Should correct on the test case:
