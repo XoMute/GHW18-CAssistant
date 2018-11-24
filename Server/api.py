@@ -73,8 +73,8 @@ class User:
         self.mishadata = variables.NIKITA(self.data[user])
         print(self.mishadata)
 
-    def getData():
-        return mishadata
+    def getData(self):
+        return self.mishadata
     
         
 #xo = User("XoMute")
