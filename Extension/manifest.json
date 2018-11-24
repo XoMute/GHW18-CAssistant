@@ -1,16 +1,22 @@
 {
  "manifest_version": 2,
- "name": "Test",
- "description": "Just fo fun, lol",
+ "name": "Communication Assistant",
+ "description": "Helper in ",
  "version": "1",
  "author": "Dima Khomutnyk",
 "browser_action": {
    "default_icon": "tab-icon.png",
-   "default_title": "Lol Kek Cheburek",
+   "default_title": "CAssistant",
    "default_popup": "popup.html"
  },
-"chrome_url_overrides" : {
-  "newtab": "newtab.html"
-},
+ "content_scripts": [
+ 	{
+ 	"matches": [
+ 		"https://web.telegram.org/*"
+ 		],
+ 	"js": ["./js/jquery-3.3.1.min.js","./js/content.js"],
+ 	"run_at": "document_idle"
+ 	}
+ ],
  "permissions": ["activeTab"]
 }
