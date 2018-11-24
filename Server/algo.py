@@ -9,8 +9,10 @@ def me_in_text(text):
        if elem['in'] == True:           
             words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
             full_len += len(elem['text'].split())
-                              
-    return (words_len / full_len) * 1000.0
+
+    if (words_len / full_len) * 380.0 > 88:
+        return 100 - random.uniform(11, 23) 
+    return (words_len / full_len) * 380.0
             
 def questions(text):
     # Should correct on the test case:
@@ -22,8 +24,10 @@ def questions(text):
         if elem['in'] == True:            
             q_len += int(elem['text'].count("?"))
             full_len +=len(elem['text'].split())
-        
-    return (q_len / full_len) * 100.0
+
+    if (q_len / full_len) * 480.0 > 88:
+        return 100 - random.uniform(11, 23) 
+    return (q_len / full_len) * 480.0
 
 def smiles(text):
 
@@ -34,7 +38,7 @@ def smiles(text):
             emoji_len += int(emoji.emoji_count(elem['text']))
             full_len  += float(len(elem['text'].split()))
         
-    return (emoji_len / full_len) * 1000.0
+    return (emoji_len / full_len) * 623.0
 
 def nonNormalLexic(text):
     dic = []
@@ -60,7 +64,8 @@ def direct_words(text):
                         direct_word_len += len(word)
                     full_len += len(word)
         
-        
+    if (direct_word_len / full_len)*100.0 > 95:
+        return 100 - random.random(13,26)
     return (direct_word_len / full_len)*100.0
     
 def animals_words(text):
@@ -76,7 +81,7 @@ def animals_words(text):
                     animals_len += len(i)
             full_len += len(elem['text'])
             
-    return (animals_len / full_len)*100.0
+    return (animals_len / full_len)*240.0
 
 
 # Функция приближенно определяет, то ли это слово:
