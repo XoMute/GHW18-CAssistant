@@ -1,6 +1,7 @@
 from telethon import TelegramClient, sync
 from telethon.tl.patched import Message
 from string_session import StringSession
+import variables
 import os
 
 API_ID = "445674"
@@ -15,6 +16,7 @@ class User:
     dataloaded = False
     dataready = False
     data = {}
+    mishadata = None
     chatter = None
     def __init__(self, uname ):
         if uname in os.listdir("./sessions"):
@@ -68,11 +70,12 @@ class User:
                          
 
         dataloaded = True
-        print(self.data[user][::-1])
+        self.mishadata = variables.NIKITA(self.data)
+        print(self.mishadata)
     
         
-#xo = User("XoMute")
-#xo.dialogue_changed("deedone")
+xo = User("XoMute")
+xo.dialogue_changed("deedone")
 #input()
 #xo.dialogue_changed("deedone")
 
