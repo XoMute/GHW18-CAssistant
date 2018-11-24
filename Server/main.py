@@ -4,6 +4,7 @@ import tornado.web
 import api
 import os
 os.chdir("Server")
+port = os.getenv("PORT",1)
 
 
 us = api.User("XoMute")
