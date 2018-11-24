@@ -1,21 +1,21 @@
 from algo import *
 from postReq import *
-
+import random
 
 def mainParams(text):
     
     post = PostRequest(text)
 
-    k_extraversion   = 1.47  #1
-    k_emotional      = 1.23  #2
-    k_animals        = 1.3  #3
-    k_egocentrism    = 1.203  #4
-    k_manipulate     = 1.1003  #5
-    k_empathy        = 1.13  #6
-    k_intelligence   = 1.22  #7
-    k_nonNormalLexic = 1.25  #8
-    k_direct_words   = 1.3200004  #9
-    k_glossary       = 0.21        
+    k_extraversion   = 1.57 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)  
+    k_emotional      = 1.23 - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)   #2
+    k_animals        = 1.1  - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)  #3
+    k_egocentrism    = 1.203 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #4
+    k_manipulate     = 1.1003 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #5
+    k_empathy        = 1.13 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #6
+    k_intelligence   = 1.22 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #7
+    k_nonNormalLexic = 1.25 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #8
+    k_direct_words   = 1.3200004 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #9
+    k_glossary       = random.uniform(0.0001, 0.29999)         
 
 
     # All global variables
