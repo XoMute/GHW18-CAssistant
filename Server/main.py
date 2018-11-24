@@ -3,7 +3,7 @@ import tornado.web
 
 import api
 import os
-os.chdor("Server")
+os.chdir("Server")
 
 
 us = api.User("XoMute")
