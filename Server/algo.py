@@ -7,10 +7,10 @@ def questions(text):
     # Should correct on the test case:
     # ??
     # 2, must be  - 1
-    return (text.count("?") / len(text)) * 100.0
+    return (text.count("?") / float(len(text))) * 100.0
 
 def smiles(text):
-    return (emoji.count() / len(text)) * 100.0
+    return (emoji.count() / float(len(text))) * 100.0
 
 def nonNoramlLexic(text):
     dict = ()
