@@ -52,7 +52,7 @@ class User:
 
         else:
             temp = []
-            for mes in self.client.iter_messages(self.client.get_entity(user),limit = 300,min_id=(self.data[user][0] and self.data[user][0]["id"] or 0) ):
+            for mes in self.client.iter_messages(self.client.get_entity(user),limit = 300,min_id=(len(self.data[user]) > 0 and self.data[user][0]["id"] or 0) ):
                 if not type(mes) is Message:
                     #print(type(mes))
                     continue
