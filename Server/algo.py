@@ -53,7 +53,7 @@ def direct_words(text):
     full_len        = 0
     for struct in text:
         lst = struct['text'].split()
-        if elem['in'] == True:
+        if struct['in'] == True:
             for word in lst:
                 for word_in_dict in dic:
                     if word.find(word_in_dict) > 0 or word[len(word) - 1] == "у" or word[len(word)-1] == "ю":
