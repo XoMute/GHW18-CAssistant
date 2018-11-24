@@ -1,4 +1,4 @@
-document.body.style.background = 'yellow';
+// document.body.style.background = 'yellow';
 setTimeout(() => $(".im_dialog").on("click", () => {
 	// $(".im_panel_peer_photo").click();
 		var id = window.location.href.substring(33);
