@@ -7,6 +7,7 @@ import pandas as pd
 
  
 nosea = 0
+glossary = 0
 
 class PostRequest:
 
@@ -37,9 +38,9 @@ class PostRequest:
         r = session.post('http://www.majento.ru/index.php?page=seo-analize/text-semantic/index' ,headers=headers, data=payload)
         print(r.text)
         self.determine_all(r.text)
-
+ 
     def determine_all(self, html_string):
-        
+        global glossary
         global nosea
         tables = pd.read_html(html_string) # Returns list of all tables on page
         #sp500_table = tables[10].text
@@ -51,7 +52,9 @@ class PostRequest:
         withStopWords    = []
         speechParts      = []
         dictionary       = []
-        
+
+        count_str_1 = 0
+        count_str_2 = 0
         for ch in tables[9].values:
             
             if 'Тошнота' in ch[0]:
@@ -62,33 +65,39 @@ class PostRequest:
             else:                
                 withoutStopWords.append([ch[0], ch[1]])
                 print(ch[0], ch[1])
-                
+          
             
        # print(withoutStopWords[0][0] + " " + withoutStopWords[0][1] )
        # print(tables[9].values)
        # for ch in tables[9]:
        #     print(ch)
         # Со стоп-словами
-        
+       
         for ch in tables[10].values:        
             withStopWords.append([ch[1],ch[2], float(ch[3])/10,float(ch[4])/10])
             print(str(ch[0]) + " " + str(ch[1]) + " " + str(ch[2])+ " "+ str(float(ch[3])/10)+ " "+ str(float(ch[4])/10))
+            count_str_1 += len(ch[1]) - 2
+            print(ch[1][:len(ch[1])-3] + " MISHA")
+           
         print()
         # Части речи
         #print(tables[11].values.T)
         for ch in tables[11].values:
              speechParts.append([ch[1],ch[2], float(ch[3])/10,float(ch[4])/10])
              print(str(ch[0]) +  " " + str(ch[1]) + " " + str(ch[2])+ " "+ str(float(ch[3])/10)+ " "+ str(float(ch[4])/10))
-        print()
+             count_str_2 += len(ch[1])
+        print(count_str_1, count_str_2)
+        glossary = (count_str_1 / count_str_2) * 100
+        print(glossary)
         # Словарь
         #print(tables[12].values.T)
         for ch in tables[12].values:
             dictionary.append([ch[0], ch[1]])
             print(ch[0], ch[1])
         #for i in tables:
-          #  print(i)
+          #  print(i
+ 
 
 
 
-
-#post = PostRequest("одним из важных направлений развития цифровых технологий является их оестествление ")
+post = PostRequest("одним из важных направлений развития цифровых технологий является их оестествление ")

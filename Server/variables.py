@@ -6,16 +6,16 @@ def mainParams(text):
     
     post = PostRequest(text)
 
-    k_extraversion   = 0.25  #1
-    k_emotional      = 0.25  #2
-    k_animals        = 0.25  #3
-    k_egocentrism    = 0.25  #4
-    k_manipulate     = 0.25  #5
-    k_empathy        = 0.25  #6
-    k_intelligence   = 0.25  #7
-    k_nonNormalLexic = 0.25  #8
-    k_direct_words   = 0.25  #9
-
+    k_extraversion   = 1.47  #1
+    k_emotional      = 1.23  #2
+    k_animals        = 1.3  #3
+    k_egocentrism    = 1.203  #4
+    k_manipulate     = 1.1003  #5
+    k_empathy        = 1.13  #6
+    k_intelligence   = 1.22  #7
+    k_nonNormalLexic = 1.25  #8
+    k_direct_words   = 1.3200004  #9
+    k_glossary       = 0.21        
 
 
     # All global variables
@@ -29,15 +29,13 @@ def mainParams(text):
         #empathy      =
         questions(text)         * k_empathy,
         #intelligence =
-        smiles(text)            * (-k_emotional) + nosea                *k_intelligence,
+        smiles(text)            * (-k_emotional) + nosea*3.333             *k_intelligence + glossary * k_glossary,
         #aggresive    =
         animals_words(text)     * k_animals      + nonNormalLexic(text) *k_nonNormalLexic   + direct_words(text)*k_direct_words,
         #manipulate   =
-        questions(text)         * k_manipulate,
-        #egocentrism  =
-        me_in_text(text)        * k_egocentrism,
-        13,
-        25
+        questions(text)         * k_manipulate   + direct_words(text)*k_direct_words,
+        #egocentrism  = 
+        me_in_text(text)        * k_egocentrism
         )
     
 
