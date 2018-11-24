@@ -6,7 +6,7 @@ import asyncio
 import api
 import os
 os.chdir("Server")
-port = os.getenv("PORT",1)
+port = os.getenv("PORT",8888)
 
 
 us = api.User("XoMute")
@@ -30,9 +30,9 @@ class MainHandler(BaseHandler):
 class DialogueChanged(BaseHandler):
     def get(self):
         self.write("Hello, world")
-    def post(self):
+    async def post(self):
 
-        asyncio.ensure_future(us.dialogue_changed(self.request.body.decode()))
+        await us.dialogue_changed(self.request.body.decode())
         print(self.request.body)
         self.write("You posted")
 

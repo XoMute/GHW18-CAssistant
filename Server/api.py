@@ -3,6 +3,7 @@ from telethon.tl.patched import Message
 from string_session import StringSession
 import variables
 import os
+import asyncio
 
 API_ID = "445674"
 API_HASH =" 921ce6d709ed0b6f8b487747c18b50e6"
@@ -30,13 +31,13 @@ class User:
             self.client.start()
             with open("./sessions/"+uname,"w") as o:
                 o.write(session.save())
-    def dialogue_changed(self, user): 
+    async def dialogue_changed(self, user): 
         print(user)
         dataloaded = False
         self.chatter = user
         if user not in self.data.keys():
             self.data[user] = []
-            for mes in self.client.iter_messages(self.client.get_entity(user),limit = 300):
+            async for mes in self.client.iter_messages(await self.client.get_entity(user),limit = 300):
                 if not type(mes) is Message:
                     #print(type(mes))
                     continue
