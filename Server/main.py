@@ -22,6 +22,7 @@ class MainHandler(BaseHandler):
     def get(self):
         self.write("Hello, world")
         print(self.request.body)
+        print(self.request)
 
 
 class DialogueChanged(BaseHandler):
