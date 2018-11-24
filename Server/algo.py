@@ -1,3 +1,5 @@
+import emoji
+
 def me_in_text(text):
     return 100.0*(text.count("Я") + text.count(" я") + text.count(".я") + text.count(",я") + text.count("?я")+ text.count("!я")+ text.count("(я")+ text.count("-я")+ text.count("+я")+ text.count(":я") + text.count(";я")) / float(len(text))
             
@@ -16,7 +18,10 @@ def nonNoramlLexic(text):
     return 0
     
 
-def 
+def without_me(text):
+    dict = ()
+
+    return 0
 
 def direct_words(text):
     dict = ()
@@ -41,7 +46,7 @@ def animals_words(text):
 
 def aproximation(string, word):
     counter = 0
-    for w int string:
+    for w in string:
         for i in range(len(word)):
             if (len(w) > i) and (word[i] == w[i]):
                 counter +=1
