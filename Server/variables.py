@@ -35,7 +35,9 @@ def mainParams(text):
         #manipulate   =
         questions(text)         * k_manipulate,
         #egocentrism  =
-        me_in_text(text)        * k_egocentrism
+        me_in_text(text)        * k_egocentrism,
+        13,
+        25
         )
     
 
