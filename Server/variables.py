@@ -40,6 +40,4 @@ def mainParams(text):
     
 
 def NIKITA(text):
-    
-    mainParams(text)
-    return 0
+    return mainParams(text)
