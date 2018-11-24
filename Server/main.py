@@ -21,7 +21,7 @@ class BaseHandler(tornado.web.RequestHandler):
 class MainHandler(BaseHandler):
     def get(self):
         self.write("Hello, world")
-        print(sels.request.body)
+        print(self.request.body)
 
 
 class DialogueChanged(BaseHandler):
