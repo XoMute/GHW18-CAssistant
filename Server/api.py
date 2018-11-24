@@ -72,6 +72,9 @@ class User:
         dataloaded = True
         self.mishadata = variables.NIKITA(self.data)
         print(self.mishadata)
+
+    def getData():
+        return mishadata
     
         
 xo = User("XoMute")

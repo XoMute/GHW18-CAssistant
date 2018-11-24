@@ -40,7 +40,8 @@ class DataHandler(BaseHandler):
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
-        (r"/dialogue",DialogueChanged)
+        (r"/dialogue",DialogueChanged),
+        (r"/data",DataHandler)
 
     ])
 
