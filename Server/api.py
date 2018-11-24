@@ -70,7 +70,7 @@ class User:
                          
 
         dataloaded = True
-        self.mishadata = variables.NIKITA(self.data)
+        self.mishadata = variables.NIKITA(self.data[user])
         print(self.mishadata)
 
     def getData():
