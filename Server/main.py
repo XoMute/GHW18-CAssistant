@@ -29,11 +29,13 @@ class DialogueChanged(BaseHandler):
     def get(self):
         self.write("Hello, world")
     def post(self):
-        us.dialogue_changed(self.request.body.decode())
+        #us.dialogue_changed(self.request.body.decode())
         print(self.request.body)
         self.write("You posted")
 
 class DataHandler(BaseHandler):
+    def post(self):
+        self.write("Jopa")
     def get(self):
         self.write("Jopa")
 

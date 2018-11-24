@@ -77,8 +77,8 @@ class User:
         return mishadata
     
         
-xo = User("XoMute")
-xo.dialogue_changed("deedone")
+#xo = User("XoMute")
+#xo.dialogue_changed("deedone")
 #input()
 #xo.dialogue_changed("deedone")
 
