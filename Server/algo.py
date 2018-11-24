@@ -1,42 +1,67 @@
 import emoji
 
 def me_in_text(text):
-    return 100.0*(text.count("Я") + text.count(" я") + text.count(".я") + text.count(",я") + text.count("?я")+ text.count("!я")+ text.count("(я")+ text.count("-я")+ text.count("+я")+ text.count(":я") + text.count(";я")) / float(len(text))
+    words_len = 0
+    full_len = 0
+   # print(text)
+    for elem in text:
+       # print(elem)
+        words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
+        full_len += len(elem['text'])
+                          
+    return (words_len / full_len) * 100.0
             
 def questions(text):
     # Should correct on the test case:
     # ??
     # 2, must be  - 1
-    return (text.count("?") / float(len(text))) * 100.0
+    q_len = 0
+    full_len = 0                      
+    for elem in text:
+        q_len += int(elem['text'].count("?"))
+        full_len +=float(len(elem['text']))
+        
+    return (q_len / full_len) * 100.0
 
 def smiles(text):
-    return (emoji.count() / float(len(text))) * 100.0
 
-def nonNoramlLexic(text):
-    dict = ()
+    emoji_len = 0
+    full_len = 0
+    for elem in text:
+        emoji_len += int(emoji.emoji_count(elem['text']))
+        full_len  += float(len(elem['text']))
+        
+    return (emoji_len / full_len) * 100.0
+
+def nonNormalLexic(text):
+    dic = []
     
     return 0
     
 
 def without_me(text):
-    dict = ()
+    dic = []
 
     return 0
 
 def direct_words(text):
-    dict = ()
+    dic = []
     
     return 0
     
 def animals_words(text):
     counter = 0
-    lst = text.replace('.', '').split()
-    dict = ("крыса","тварь","животное","баран","олень","змея","сука")
-    for i in lst:
-        if aproximation(dict, i):
-            counter += len(i)
+    animals_len = 0
+    full_len = 0
+    dic = ["крыса","тварь","животное","баран","олень","змея","сука"]                          
+    for elem in text:
+        lst = elem['text'].replace('.', '').split()        
+        for i in lst:
+            if aproximation(dic, i):
+                animals_len += len(i)
+        full_len += len(elem['text'])
             
-    return (counter / len(text))*100.0
+    return (animals_len / full_len)*100.0
 
 
 # Функция приближенно определяет, то ли это слово:

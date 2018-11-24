@@ -4,7 +4,9 @@ from html.parser import HTMLParser
 from bs4 import BeautifulSoup
 from lxml import etree
 import pandas as pd
+
  
+nosea = 0
 
 class PostRequest:
 
@@ -38,7 +40,7 @@ class PostRequest:
 
     def determine_all(self, html_string):
         
-        
+        global nosea
         tables = pd.read_html(html_string) # Returns list of all tables on page
         #sp500_table = tables[10].text
         #print(sp500_table)
@@ -87,6 +89,6 @@ class PostRequest:
           #  print(i)
 
 
-global nosea
+
 
 #post = PostRequest("одним из важных направлений развития цифровых технологий является их оестествление ")

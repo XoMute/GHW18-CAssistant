@@ -23,19 +23,19 @@ def mainParams(text):
     # 
     return (
         #extraversion
-        me_in_text(text)  * k_extraversion,
+        me_in_text(text)        * k_extraversion,
         #emotional    =
-        smiles(text)      * k_emotional,
+        smiles(text)            * k_emotional,
         #empathy      =
-        questions(text)   * k_empathy,
+        questions(text)         * k_empathy,
         #intelligence =
-        smiles(text)      * (-k_emotional) + nosea                *k_intelligence,
+        smiles(text)            * (-k_emotional) + nosea                *k_intelligence,
         #aggresive    =
-        animals(text)     * k_animals      + nonNormalLexic(text) *k_nonNormalLexic   + direct_words(text)*k_direct_words,
+        animals_words(text)     * k_animals      + nonNormalLexic(text) *k_nonNormalLexic   + direct_words(text)*k_direct_words,
         #manipulate   =
-        questions(text)   * k_manipulate,
+        questions(text)         * k_manipulate,
         #egocentrism  =
-        me_in_text(text)  * k_egocentrism
+        me_in_text(text)        * k_egocentrism
         )
     
 
