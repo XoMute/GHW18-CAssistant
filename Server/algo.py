@@ -6,8 +6,9 @@ def me_in_text(text):
    # print(text)
     for elem in text:
        # print(elem)
-        words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
-        full_len += len(elem['text'].split())
+       if elem['in'] == True:           
+            words_len += int(elem['text'].count("Я")) + int(elem['text'].count(" я")) + int(elem['text'].count(".я")) + int(elem['text'].count(",я")) + int(elem['text'].count("?я"))+ int(elem['text'].count("!я"))+ int(elem['text'].count("(я"))+ int(elem['text'].count("-я"))+ int(elem['text'].count("+я"))+ elem['text'].count(":я") + int(elem['text'].count(";я"))
+            full_len += len(elem['text'].split())
                               
     return (words_len / full_len) * 1000.0
             
@@ -18,8 +19,9 @@ def questions(text):
     q_len = 0
     full_len = 0                      
     for elem in text:
-        q_len += int(elem['text'].count("?"))
-        full_len +=len(elem['text'].split())
+        if elem['in'] == True:            
+            q_len += int(elem['text'].count("?"))
+            full_len +=len(elem['text'].split())
         
     return (q_len / full_len) * 100.0
 
@@ -28,10 +30,11 @@ def smiles(text):
     emoji_len = 0
     full_len = 0
     for elem in text:
-        emoji_len += int(emoji.emoji_count(elem['text']))
-        full_len  += float(len(elem['text'].split()))
+        if elem['in'] == True:            
+            emoji_len += int(emoji.emoji_count(elem['text']))
+            full_len  += float(len(elem['text'].split()))
         
-    return (emoji_len / full_len) * 100.0
+    return (emoji_len / full_len) * 1000.0
 
 def nonNormalLexic(text):
     dic = []
@@ -50,11 +53,12 @@ def direct_words(text):
     full_len        = 0
     for struct in text:
         lst = struct['text'].split()
-        for word in lst:
-            for word_in_dict in dic:
-                if word.find(word_in_dict) > 0 or word[len(word) - 1] == "у" or word[len(word)-1] == "ю":
-                    direct_word_len += len(word)
-                full_len += len(word)
+        if elem['in'] == True:
+            for word in lst:
+                for word_in_dict in dic:
+                    if word.find(word_in_dict) > 0 or word[len(word) - 1] == "у" or word[len(word)-1] == "ю":
+                        direct_word_len += len(word)
+                    full_len += len(word)
         
         
     return (direct_word_len / full_len)*100.0
@@ -65,11 +69,12 @@ def animals_words(text):
     full_len = 0
     dic = ["крыса","тварь","животное","баран","олень","змея","сука"]                          
     for elem in text:
-        lst = elem['text'].replace('.', '').split()        
-        for i in lst:
-            if aproximation(dic, i):
-                animals_len += len(i)
-        full_len += len(elem['text'])
+        if elem['in'] == True:
+            lst = elem['text'].replace('.', '').split()        
+            for i in lst:
+                if aproximation(dic, i):
+                    animals_len += len(i)
+            full_len += len(elem['text'])
             
     return (animals_len / full_len)*100.0
 
