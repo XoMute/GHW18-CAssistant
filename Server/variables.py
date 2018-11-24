@@ -6,16 +6,16 @@ def mainParams(text):
     
     post = PostRequest(text)
 
-    k_extraversion   = 1.57 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)  
-    k_emotional      = 1.23 - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)   #2
-    k_animals        = 1.1  - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)  #3
-    k_egocentrism    = 1.203 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #4
-    k_manipulate     = 1.1003 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #5
-    k_empathy        = 1.13 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #6
-    k_intelligence   = 1.22 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #7
-    k_nonNormalLexic = 1.25 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #8
-    k_direct_words   = 1.3200004 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #9
-    k_glossary       = random.uniform(0.0001, 0.29999)         
+    k_extraversion   = 1.40001 - random.betavariate(random.random()*100, random.random()*100)  
+    k_emotional      = 1.200123 - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)   #2
+    k_animals        = 1.10641293  - random.betavariate(random.random()*100, random.random()*100)+ random.uniform(0.0001, 0.19)  #3
+    k_egocentrism    = 1.18303129 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #4
+    k_manipulate     = 1.1003023192 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #5
+    k_empathy        = 1.130123123 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #6
+    k_intelligence   = 1.1801237 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #7
+    k_nonNormalLexic = 1.1201238 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #8
+    k_direct_words   = 1.2200004 - random.betavariate(random.random()*100, random.random()*100) + random.uniform(0.0001, 0.19)   #9
+    k_glossary       = random.uniform(0.0001, 0.09)         
 
 
     # All global variables
