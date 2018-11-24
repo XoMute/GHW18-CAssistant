@@ -34,7 +34,7 @@ def smiles(text):
             emoji_len += int(emoji.emoji_count(elem['text']))
             full_len  += float(len(elem['text'].split()))
         
-    return (emoji_len / full_len) * 100.0
+    return (emoji_len / full_len) * 1000.0
 
 def nonNormalLexic(text):
     dic = []
