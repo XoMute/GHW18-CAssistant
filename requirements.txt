@@ -1,2 +1,6 @@
 telethon
 tornado
+emoji
+beautifulsoup4
+pandas
+lxml
