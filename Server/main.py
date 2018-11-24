@@ -34,6 +34,8 @@ class DialogueChanged(BaseHandler):
         self.write("You posted")
 
 class DataHandler(BaseHandler):
+    def post(self):
+        self.write("Jopa")
     def get(self):
         self.write("Jopa")
 
